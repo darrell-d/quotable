@@ -3,11 +3,11 @@ from django.db import models
 class Quote(models.Model):
     quote = models.CharField(max_length=500)
     body = models.TextField(blank=True,null=True, default="")
-    source = models.CharField(max_length=128, default="anonymous")
+    source = models.CharField(max_length=128, default="unknown")
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        if self.source in 'anonymous':
+        if self.source in 'unknown':
             _str = 'Someone said: "{}"'.format(self.quote)
         else:
             _str = '{} said: "{}"'.format(self.source, self.quote)
@@ -26,22 +26,13 @@ class Quote(models.Model):
         else:
             random.seed(t)
 
-        quotes = Quote.objects.all()
-        if quotes.exists():
-            
-            max_id = quotes.aggregate(max_id=Max("id"))['max_id']
-            min_id = quotes.aggregate(max_id=Min("id"))['max_id']
-            pk = random.randint(min_id, max_id)
-            try:
-                quote = Quote.objects.get(pk=pk)
-            except ObjectDoesNotExist as e:
-                # Another way to do random
-                quote = Quote.objects.order_by("?").first()
-        else:
-            quote = {
-                'quote': 'The beauty of quotes is that they allow us to glimpse into another minds and understand how they think and look at the world',
-                'body': 'This is the default quote. Go to the admin panel to start adding your own',
-                'source': 'Joseph Geran III',
-            }
+        max_id = Quote.objects.all().aggregate(max_id=Max("id"))['max_id']
+        min_id = Quote.objects.all().aggregate(max_id=Min("id"))['max_id']
+        pk = random.randint(min_id, max_id)
+        try:
+            quote = Quote.objects.get(pk=pk)
+        except ObjectDoesNotExist as e:
+            # Another way to do random
+            quote = Quote.objects.order_by("?").first()
 
         return quote
