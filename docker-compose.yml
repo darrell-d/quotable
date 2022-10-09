@@ -21,10 +21,11 @@ services:
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - PHOTOS_S3_BUCKET=${PHOTOS_S3_BUCKET}
     build: .
-    command: bash -c "echo \"import sys; from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', 'password') if len(User.objects.all()) < 1 else print('admin already created'); sys.exit(0)\" | python manage.py shell &&
+    command: bash -c "python manage.py migrate &&
      python manage.py collectstatic --no-input &&
-     python manage.py migrate && 
-     python manage.py runserver 0.0.0.0:80"
+     echo \"import sys; from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', 'password') if len(User.objects.all()) < 1 else print('admin already created'); sys.exit(0)\" | python manage.py shell &&
+     apache2ctl start && 
+     tail -f /var/log/apache2/error.log /var/log/apache2/access.log"
     volumes:
       - .:/code
     ports:

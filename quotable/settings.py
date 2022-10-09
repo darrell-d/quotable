@@ -83,6 +83,8 @@ WSGI_APPLICATION = 'quotable.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+print(os.environ)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -140,31 +142,7 @@ STATICFILES_DIRS = [
     os.path.join("node_modules/jquery/")
     ]
 
-# logging
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': '/app.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
-
 # Custom Globals
-HOME_GPS = '39.9571198,-75.1556119'
-HOME_CITY = 'philadelphia'
-WEATHER_API_KEY = '64357b8936421af79c9c519ec0a532ed'
 USE_TZ = False
 TIME_ZONE = 'America/New_York'
 
@@ -176,14 +154,3 @@ AWS_STORAGE_BUCKET_NAME = os.getenv('PHOTOS_S3_BUCKET')
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_DEFAULT_ACL = 'public-read'
-
-NOISE_MEDIA_FOLDER = 'noise'
-
-DOMAINS = [
-        ('domoired', 'Domoired.com'),
-        ('darrelld', 'darrelld.com'),
-        ('potfw', 'Pictures Of The Floating World'),
-        ('void', 'Messages To The Void'),
-    ]
-
-THUMBNAIL_SIZE = (1000, 562)
