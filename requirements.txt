@@ -1,0 +1,9 @@
+Django>=3.0
+psycopg2>=2.9.1
+gunicorn>=20.0.4
+django-bootstrap4>=2.0
+markdown
+requests
+python-dotenv
+pytz
+mod_wsgi
