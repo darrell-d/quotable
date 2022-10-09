@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load template_extras %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'quotes/styles.css' %}">
+    {% if author_quotes %}
+        <div class = 'absolute-center authors'>
+            <h2>{{author_quotes.0.source}} said:</h2>
+            <ul>
+                {% for quote in author_quotes %}
+                <li>{{quote.quote }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class = 'absolute-center authors'>
+            <h2>Authors</h2>
+            <ul>
+                {% for author in authors %}
+                <li><a href='authors/{{author.0|iriencode  }}'>{{author.0 }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

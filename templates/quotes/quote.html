@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'quotes/styles.css' %}">
+    <div class = 'absolute-center'>
+        <h1>
+            <span class='quote--source'>
+                {% if quote.source != "unknown" %}
+                    {{ quote.source }} said:
+                {% else %}
+                    Someone said:
+                {% endif %}
+            </span>
+            <span class = 'quote'>{{ quote.quote }}</span>
+        </h1>
+        {% if quote.body %}
+            <p class = 'quote---body'>{{ quote.body }}</p>
+        {% endif %}
+    </div>
+    <p class = 'shuffle'><a href = 'random' title = 'Shuffle'>🔀</a></p>
+{% endblock %}

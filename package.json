@@ -1,0 +1,25 @@
+{
+  "name": "glitch",
+  "version": "1.0.0",
+  "description": "Quotable - Keep a quote in your pocket",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "tiny-slider": "2.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrell-d/quotable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darrell-d/quotable/issues"
+  },
+  "homepage": "https://github.com/darrell-d/quotable"
+}
