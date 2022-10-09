@@ -63,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            "templates",
+            "/code/templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -148,9 +148,6 @@ TIME_ZONE = 'America/New_York'
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_AUTO_CREATE_BUCKET = True
-AWS_STORAGE_BUCKET_NAME = os.getenv('PHOTOS_S3_BUCKET')
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_DEFAULT_ACL = 'public-read'
+DEFAULT_QUOTE = 'The beauty of quotes is that they allow us to glimpse into another minds and understand how they think and look at the world.'
+DEFAULT_SOURCE = 'Joseph Geran III'
+DEFAULT_BODY = ''
