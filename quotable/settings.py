@@ -136,9 +136,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [
     os.path.join("assets/"),
-    os.path.join("node_modules/"),
-    os.path.join("node_modules/bootstrap/"),
-    os.path.join("node_modules/jquery/")
     ]
 
 # Custom Globals
