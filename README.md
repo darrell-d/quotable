@@ -18,7 +18,7 @@ That's it. The main page will show a new quote everyday.
 - Get a new random quote at `/random`
 - Get a list of authors and their quotes at `/authors`
 - Get quotes via json at `/json`
-    - Get random quote as JSON at `/json/random'`
+    - Get random quote as JSON at `/json/random`
     - Get a list of authors as JSON at `/json/authors`
 - Get stats on quotes at `/stats`
 
