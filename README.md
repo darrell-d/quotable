@@ -4,10 +4,11 @@ A place to hold all your quotes.
 ## Getting started
 
  - Install [docker](https://www.docker.com/)
- - Navigate to root folder
+ - Navigate to root folder via your favorite terminal
  - Run `docker-compose up --build`
 
 That's it. The main page will show a new quote everyday.
+Access it at 127.0.0.1.
 
 
  ## Paths
